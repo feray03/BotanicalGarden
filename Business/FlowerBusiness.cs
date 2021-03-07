@@ -35,22 +35,19 @@ namespace Business
         }
 
         /// <summary>
-        /// Gives flower with wanted id. 
+        /// Gives flower with wanted name. 
         /// </summary>
         /// <param name="id">id of the wanted flower</param>
         /// <returns>flower with wanted id</returns>
         public Flower GetFlowerByName(string name)
         {
-            using (context = new GardenContext())
-            {
-                return context.Flowers.SingleOrDefault(m => m.Name == name);
-            }
+            return context.Flowers.SingleOrDefault(flower => flower.Name == name);
         }
-            /// <summary>
-            /// Adds flower in database.
-            /// </summary>
-            /// <param name="flower">the flower that will be added</param>
-            public void Add(Flower flower)
+        /// <summary>
+        /// Adds flower in database.
+        /// </summary>
+        /// <param name="flower">the flower that will be added</param>
+        public void Add(Flower flower)
             {
                 context.Flowers.Add(flower);
                 context.SaveChanges();
@@ -87,10 +84,9 @@ namespace Business
             public Season GetSeason(string name)
             {
                 var Flower = this.GetFlowerByName(name);
-                using (context = new GardenContext())
-                {
-                    return context.Seasons.Find(Flower.SeasonsId);
-                }
+                return context.Seasons.Find(Flower.SeasonsId);
             }
+
+       
     }
 }

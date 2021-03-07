@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BotanicalGardenApp.Presentation;
+using System;
 
 namespace BotanicalGardenApp
 {
@@ -6,7 +7,7 @@ namespace BotanicalGardenApp
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Botanical garden");
+            Display display = new Display();
         }
     }
 }

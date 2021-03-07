@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30804.86
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BotanicalGardenApp", "BotanicalGardenApp\BotanicalGardenApp.csproj", "{F0284392-88F0-4460-9F44-A6624B6F710B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BotanicalGardenApp", "BotanicalGardenApp\BotanicalGardenApp.csproj", "{F0284392-88F0-4460-9F44-A6624B6F710B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Business", "Business\Business.csproj", "{3C8E53A2-D4CC-4A50-8E0C-95770ECEC3C9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Business", "Business\Business.csproj", "{3C8E53A2-D4CC-4A50-8E0C-95770ECEC3C9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data", "Data\Data.csproj", "{19444EB3-C0B7-488D-8633-90A682AF840B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Data", "Data\Data.csproj", "{19444EB3-C0B7-488D-8633-90A682AF840B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

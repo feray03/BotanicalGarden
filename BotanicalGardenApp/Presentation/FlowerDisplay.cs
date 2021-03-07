@@ -19,6 +19,7 @@ namespace BotanicalGardenApp.Presentation
             Console.WriteLine("1. List all flowes");
             Console.WriteLine("2. Add new flower");
             Console.WriteLine("3. Update flower");
+            Console.WriteLine("4. Fetch book by Name");
             Console.WriteLine("5. Delete entry by Id");
             Console.WriteLine("6. Exit");
         }
@@ -42,12 +43,15 @@ namespace BotanicalGardenApp.Presentation
                         Update();
                         break;
                     case 4:
+                        Fetch();
+                        break;
+                    case 5:
                         Delete();
                         break;
                     default:
                         break;
                 }
-            } 
+            }
             while (operation != closeOperationId);
         }
 
@@ -88,9 +92,9 @@ namespace BotanicalGardenApp.Presentation
 
         private void Update()
         {
-            Console.WriteLine("Enter name to update: ");
+            Console.WriteLine("Enter Name to update: ");
             string name = Console.ReadLine();
-            Flower flower = flowerBusiness.GetSeason(name);
+            Flower flower = flowerBusiness.GetFlowerByName(Name);
             if (flower != null)
             {
                 Console.WriteLine("Enter name: ");
@@ -102,11 +106,42 @@ namespace BotanicalGardenApp.Presentation
                 Console.Write("Enter seasons Id: ");
                 flower.SeasonsId = int.Parse(Console.ReadLine());
                 flowerBusiness.Update(flower);
+                Console.WriteLine("The flower was updated successfully!");
             }
             else
             {
                 Console.WriteLine("Flower not found!");
             }
+        }
+
+        private void Fetch()
+        {
+            Console.WriteLine("Enter Name to fetch: ");
+            string name = Console.ReadLine();
+            var flower = flowerBusiness.GetFlowerByName(Name);
+            if (flower != null)
+            {
+                var FlowerSeason = flowerBusiness.GetSeason(flower.Name);
+                Console.WriteLine(new string('-', 40));
+                Console.WriteLine("ID: " + flower.Id);
+                Console.WriteLine("Name: " + flower.Name);
+                Console.WriteLine("Color: " + flower.Color);
+                Console.WriteLine("Life Expectancy: " + flower.LifeExpectancy);
+                Console.WriteLine("Seasons: " + FlowerSeason.Name);
+                Console.WriteLine(new string('-', 40));
+            }
+            else
+            {
+                Console.WriteLine("Flower not found!");
+            }
+        }
+
+        private void Delete()
+        {
+            Console.WriteLine("Enter Id to delete: ");
+            int id = int.Parse(Console.ReadLine());
+            flowerBusiness.Delete(id);
+            Console.WriteLine("Done.");
         }
     }
 }
