@@ -6,7 +6,7 @@ namespace BotanicalGardenApp
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Botanical feray");
+            Console.WriteLine("Botanical garden");
         }
     }
 }
