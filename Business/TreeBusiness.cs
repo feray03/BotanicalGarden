@@ -11,6 +11,10 @@ namespace Business
     {
         private GardenContext context;
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="gardenContext"></param>
         public TreeBusiness(GardenContext gardenContext)
         {
             context = gardenContext;
@@ -24,6 +28,7 @@ namespace Business
         /// <summary>
         /// Gives all trees in the database.
         /// </summary>
+        /// <returns>all trees from the database</returns>
         public List<Tree> GetAllFlowers()
         {
             return context.Trees.ToList();
@@ -32,6 +37,7 @@ namespace Business
         /// <summary>
         /// Adds tree in database.
         /// </summary>
+        /// <param name="tree">the tree that will be added</param>
         public void Add(Tree tree)
         {
             context.Trees.Add(tree);
@@ -41,6 +47,7 @@ namespace Business
         /// <summary>
         /// Updates tree.
         /// </summary>
+        /// <param name="tree">the tree that will be updated</param>
         public void Update(Tree tree)
         {
             var item = context.Trees.Find(tree.Id);
@@ -54,6 +61,7 @@ namespace Business
         /// <summary>
         /// Deletes a tree with wanted id.
         /// </summary>
+        /// <param name="id">id of the wanted tree</param>
         public void Delete(int id)
         {
             var item = context.Trees.FirstOrDefault(m => m.Id == id);

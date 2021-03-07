@@ -11,6 +11,10 @@ namespace Business
     {
         private GardenContext context;
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="gardenContext"></param>
         public FlowerBusiness(GardenContext gardenContext)
         {
             context = gardenContext;
@@ -24,6 +28,7 @@ namespace Business
         /// <summary>
         /// Gives all flowers in the database.
         /// </summary>
+        /// <returns>all flowers from the database</returns>
         public List<Flower> GetAllFlowers()
         {
             return context.Flowers.ToList();
@@ -32,6 +37,7 @@ namespace Business
         /// <summary>
         /// Adds flower in database.
         /// </summary>
+        /// <param name="flower">the flower that will be added</param>
         public void Add(Flower flower)
         {
             context.Flowers.Add(flower);
@@ -41,6 +47,7 @@ namespace Business
         /// <summary>
         /// Updates flower.
         /// </summary>
+        /// <param name="flower">the flower that will be updated</param>
         public void Update(Flower flower)
         {
             var item = context.Flowers.Find(flower.Id);
@@ -54,6 +61,7 @@ namespace Business
         /// <summary>
         /// Deletes a flower with wanted id.
         /// </summary>
+        /// <param name="id">id of the wanted flower</param>
         public void Delete(int id)
         {
             var item = context.Flowers.FirstOrDefault(m => m.Id == id);
