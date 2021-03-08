@@ -19,7 +19,7 @@ namespace BotanicalGardenApp.Presentation
             Console.WriteLine("1. List all flowes");
             Console.WriteLine("2. Add new flower");
             Console.WriteLine("3. Update flower");
-            Console.WriteLine("4. Fetch book by Name");
+            Console.WriteLine("4. Fetch flower by Name");
             Console.WriteLine("5. Delete entry by Id");
             Console.WriteLine("6. Exit");
         }
@@ -87,7 +87,7 @@ namespace BotanicalGardenApp.Presentation
             Console.WriteLine("Enter seasons Id: ");
             flower.SeasonsId = int.Parse(Console.ReadLine());
             flowerBusiness.Add(flower);
-            Console.WriteLine("The product was successfully added!");
+            Console.WriteLine("The flower was successfully added!");
         }
 
         private void Update()
