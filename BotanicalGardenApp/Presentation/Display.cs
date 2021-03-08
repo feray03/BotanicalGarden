@@ -15,7 +15,7 @@ namespace BotanicalGardenApp.Presentation
             Console.WriteLine("1. Flower Menu");
             Console.WriteLine("2. Tree Menu");
             Console.WriteLine("3. Shrub Menu");
-            Console.WriteLine("4. Caktus Menu");
+            Console.WriteLine("4. Cactus Menu");
             Console.WriteLine("5. Grass Menu");
             Console.WriteLine("6. Season Menu");
             Console.WriteLine("7. Exit");
