@@ -82,9 +82,9 @@ namespace BotanicalGardenApp.Presentation
             flower.Name = Console.ReadLine();
             Console.WriteLine("Enter color: ");
             flower.Color = Console.ReadLine();
-            Console.Write("Enter life expectancy: ");
+            Console.WriteLine("Enter life expectancy: ");
             flower.LifeExpectancy = Console.ReadLine();
-            Console.Write("Enter seasons Id: ");
+            Console.WriteLine("Enter seasons Id: ");
             flower.SeasonsId = int.Parse(Console.ReadLine());
             flowerBusiness.Add(flower);
             Console.WriteLine("The product was successfully added!");
@@ -94,16 +94,16 @@ namespace BotanicalGardenApp.Presentation
         {
             Console.WriteLine("Enter Name to update: ");
             string name = Console.ReadLine();
-            Flower flower = flowerBusiness.GetFlowerByName(Name);
+            Flower flower = flowerBusiness.GetFlowerByName(name);
             if (flower != null)
             {
                 Console.WriteLine("Enter name: ");
                 flower.Name = Console.ReadLine();
                 Console.WriteLine("Enter color: ");
                 flower.Color = Console.ReadLine();
-                Console.Write("Enter life expectancy: ");
+                Console.WriteLine("Enter life expectancy: ");
                 flower.LifeExpectancy = Console.ReadLine();
-                Console.Write("Enter seasons Id: ");
+                Console.WriteLine("Enter seasons Id: ");
                 flower.SeasonsId = int.Parse(Console.ReadLine());
                 flowerBusiness.Update(flower);
                 Console.WriteLine("The flower was updated successfully!");
@@ -118,7 +118,7 @@ namespace BotanicalGardenApp.Presentation
         {
             Console.WriteLine("Enter Name to fetch: ");
             string name = Console.ReadLine();
-            var flower = flowerBusiness.GetFlowerByName(Name);
+            var flower = flowerBusiness.GetFlowerByName(name);
             if (flower != null)
             {
                 var FlowerSeason = flowerBusiness.GetSeason(flower.Name);
