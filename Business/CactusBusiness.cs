@@ -26,10 +26,20 @@ namespace Business
         }
 
         /// <summary>
+        /// Gives cactus with wanted name. 
+        /// </summary>
+        /// <param name="id">id of the wanted cactus</param>
+        /// <returns>cactus with wanted id</returns>
+        public Cactus GetCactusByName(string name)
+        {
+            return context.Cactuses.SingleOrDefault(cactus => cactus.Name == name);
+        }
+
+        /// <summary>
         /// Gives all cactuses in the database.
         /// </summary>
         /// <returns>all cactuses from the database</returns>
-        public List<Cactus> GetAllFlowers()
+        public List<Cactus> GetAllCactuses()
         {
             return context.Cactuses.ToList();
         }
@@ -70,6 +80,12 @@ namespace Business
                 context.Cactuses.Remove(item);
                 context.SaveChanges();
             }
+        }
+
+        public Season GetSeason(string name)
+        {
+            var Cactus = this.GetCactusByName(name);
+            return context.Seasons.Find(Cactus.SeasonsId);
         }
     }
 }

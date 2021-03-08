@@ -26,10 +26,20 @@ namespace Business
         }
 
         /// <summary>
+        /// Gives season with wanted name. 
+        /// </summary>
+        /// <param name="id">id of the wanted season</param>
+        /// <returns>season with wanted id</returns>
+        public Season GetSeasonByName(string name)
+        {
+            return context.Seasons.SingleOrDefault(season => season.Name == name);
+        }
+
+        /// <summary>
         /// Gives all seasons in the database.
         /// </summary>
         /// <returns>all seasons from the database</returns>
-        public List<Season> GetAllFlowers()
+        public List<Season> GetAllSeasons()
         {
             return context.Seasons.ToList();
         }

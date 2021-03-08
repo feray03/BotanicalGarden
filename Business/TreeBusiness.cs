@@ -29,9 +29,19 @@ namespace Business
         /// Gives all trees in the database.
         /// </summary>
         /// <returns>all trees from the database</returns>
-        public List<Tree> GetAllFlowers()
+        public List<Tree> GetAllTrees()
         {
             return context.Trees.ToList();
+        }
+
+        /// <summary>
+        /// Gives tree with wanted name. 
+        /// </summary>
+        /// <param name="id">id of the wanted tree</param>
+        /// <returns>tree with wanted id</returns>
+        public Tree GetTreeByName(string name)
+        {
+            return context.Trees.SingleOrDefault(tree => tree.Name == name);
         }
 
         /// <summary>
@@ -70,6 +80,12 @@ namespace Business
                 context.Trees.Remove(item);
                 context.SaveChanges();
             }
+        }
+
+        public Season GetSeason(string name)
+        {
+            var Tree = this.GetTreeByName(name);
+            return context.Seasons.Find(Tree.SeasonsId);
         }
     }
 }

@@ -26,10 +26,20 @@ namespace Business
         }
 
         /// <summary>
+        /// Gives shrub with wanted name. 
+        /// </summary>
+        /// <param name="id">id of the wanted shrub</param>
+        /// <returns>shrub with wanted id</returns>
+        public Shrub GetShrubByName(string name)
+        {
+            return context.Shrubs.SingleOrDefault(shrub => shrub.Name == name);
+        }
+
+        /// <summary>
         /// Gives all shrubs in the database.
         /// </summary>
         /// <returns>all shrubs from the database</returns>
-        public List<Shrub> GetAllFlowers()
+        public List<Shrub> GetAllShrubs()
         {
             return context.Shrubs.ToList();
         }
@@ -64,12 +74,18 @@ namespace Business
         /// <param name="id">id of the wanted shrub</param>
         public void Delete(int id)
         {
-            var item = context.Trees.FirstOrDefault(m => m.Id == id);
+            var item = context.Shrubs.FirstOrDefault(m => m.Id == id);
             if (item != null)
             {
-                context.Trees.Remove(item);
+                context.Shrubs.Remove(item);
                 context.SaveChanges();
             }
+        }
+
+        public Season GetSeason(string name)
+        {
+            var Shrub = this.GetShrubByName(name);
+            return context.Seasons.Find(Shrub.SeasonsId);
         }
     }
 }

@@ -26,10 +26,20 @@ namespace Business
         }
 
         /// <summary>
+        /// Gives grass with wanted name. 
+        /// </summary>
+        /// <param name="id">id of the wanted grass</param>
+        /// <returns>grass with wanted id</returns>
+        public Grass GetGrassByName(string name)
+        {
+            return context.Grasses.SingleOrDefault(grass => grass.Name == name);
+        }
+
+        /// <summary>
         /// Gives all Grasses in the database.
         /// </summary>
         /// <returns>all grases from the database</returns>
-        public List<Grass> GetAllFlowers()
+        public List<Grass> GetAllGrasses()
         {
             return context.Grasses.ToList();
         }
@@ -59,7 +69,7 @@ namespace Business
         }
 
         /// <summary>
-        /// Deletes a Grass with wanted id.
+        /// Deletes a grass with wanted id.
         /// </summary>
         /// <param name="id">id of the wanted grass</param>
         public void Delete(int id)
@@ -70,6 +80,12 @@ namespace Business
                 context.Grasses.Remove(item);
                 context.SaveChanges();
             }
+        }
+
+        public Season GetSeason(string name)
+        {
+            var Grass = this.GetGrassByName(name);
+            return context.Seasons.Find(Grass.SeasonsId);
         }
     }
 }
