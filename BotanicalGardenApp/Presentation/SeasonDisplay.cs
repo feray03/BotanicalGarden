@@ -54,7 +54,7 @@ namespace BotanicalGardenApp.Presentation
             var seasons = seasonBusiness.GetAllSeasons();
             foreach (var season in seasons)
             {
-                Console.WriteLine($"{season.Name}");
+                Console.WriteLine($"{season.Id} - {season.Name}");
             }
             Console.WriteLine(new string('-', 40));
         }

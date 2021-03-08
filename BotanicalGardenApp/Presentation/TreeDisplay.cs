@@ -70,7 +70,7 @@ namespace BotanicalGardenApp.Presentation
             foreach (var tree in trees)
             {
                 var Seasons = treeBusiness.GetSeason(tree.Name);
-                Console.WriteLine($"{tree.Name} {tree.Type} {tree.Height} {tree.StemDiameter} {Seasons.Name}");
+                Console.WriteLine($"{tree.Id} - {tree.Name} {tree.Type} {tree.Height} {tree.StemDiameter} {Seasons.Name}");
             }
             Console.WriteLine(new string('-', 40));
         }
