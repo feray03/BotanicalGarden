@@ -11,7 +11,7 @@ using System.Text;
 
 namespace BotanicalGarden.Test
 {
-      public class GrassTests
+    public class GrassTests
     {
         [TestCase]
         public void Gives_All_Flowers()
@@ -39,6 +39,7 @@ namespace BotanicalGarden.Test
             Assert.AreEqual("Second", Grasses[1].Name);
             Assert.AreEqual("Third", Grasses[2].Name);
         }
+
         [TestCase]
         public void Add_Grass()
         {
@@ -107,5 +108,5 @@ namespace BotanicalGarden.Test
         }
     }
 }
-    
+
 

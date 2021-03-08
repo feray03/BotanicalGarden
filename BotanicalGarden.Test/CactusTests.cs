@@ -11,7 +11,7 @@ using System.Text;
 
 namespace BotanicalGarden.Test
 {
-     public class CactusTests
+    public class CactusTests
     {
         [TestCase]
         public void Gives_All_Flowers()
@@ -39,6 +39,7 @@ namespace BotanicalGarden.Test
             Assert.AreEqual("Second", Cactuses[1].Name);
             Assert.AreEqual("Third", Cactuses[2].Name);
         }
+
         [TestCase]
         public void Add_Cactus()
         {
@@ -107,5 +108,5 @@ namespace BotanicalGarden.Test
         }
     }
 }
-    
+
 
