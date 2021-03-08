@@ -70,7 +70,7 @@ namespace BotanicalGardenApp.Presentation
             foreach (var flower in flowers)
             {
                 var Seasons = flowerBusiness.GetSeason(flower.Name);
-                Console.WriteLine($"{flower.Name} {flower.Color} {flower.LifeExpectancy} {Seasons.Name}");
+                Console.WriteLine($"{flower.Id} - {flower.Name} {flower.Color} {flower.LifeExpectancy} {Seasons.Name}");
             }
             Console.WriteLine(new string('-', 40));
         }

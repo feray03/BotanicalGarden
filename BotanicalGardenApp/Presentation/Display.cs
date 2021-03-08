@@ -6,7 +6,7 @@ namespace BotanicalGardenApp.Presentation
 {
     public class Display
     {
-        private int closeOperationId = 6;
+        private int closeOperationId = 7;
         private void ShowMenu()
         {
             Console.WriteLine(new string('-', 40));
@@ -17,7 +17,8 @@ namespace BotanicalGardenApp.Presentation
             Console.WriteLine("3. Shrub Menu");
             Console.WriteLine("4. Caktus Menu");
             Console.WriteLine("5. Grass Menu");
-            Console.WriteLine("6. Exit");
+            Console.WriteLine("6. Season Menu");
+            Console.WriteLine("7. Exit");
         }
         private void Input()
         {
@@ -31,7 +32,15 @@ namespace BotanicalGardenApp.Presentation
                     case 1:
                         CreateFlowerDisplay();
                         break;
-                    
+                    case 2:
+                        CreateTreeDisplay();
+                        break;
+                    case 3:
+                        CreateShrubDisplay();
+                        break;
+                    case 6:
+                        CreateSeasonDisplay();
+                        break;
                     default:
                         break;
                 }
@@ -44,6 +53,20 @@ namespace BotanicalGardenApp.Presentation
         private void CreateFlowerDisplay()
         {
             FlowerDisplay display = new FlowerDisplay();
+        }
+        private void CreateTreeDisplay()
+        {
+            TreeDisplay display = new TreeDisplay();
+        }
+
+        private void CreateShrubDisplay()
+        {
+            ShrubDisplay display = new ShrubDisplay();
+        }
+
+        private void CreateSeasonDisplay()
+        {
+            SeasonDisplay display = new SeasonDisplay();
         }
     }
 }
