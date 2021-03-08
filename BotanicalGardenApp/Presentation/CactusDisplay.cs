@@ -14,7 +14,7 @@ namespace BotanicalGardenApp.Presentation
         private void ShowMenu()
         {
             Console.WriteLine(new string('-', 40));
-            Console.WriteLine(new string(' ', 18) + "Cactus MENU" + new string(' ', 18));
+            Console.WriteLine(new string(' ', 18) + "CACTUS MENU" + new string(' ', 18));
             Console.WriteLine(new string('-', 40));
             Console.WriteLine("1. List all cactus");
             Console.WriteLine("2. Add new cactus");
@@ -34,7 +34,7 @@ namespace BotanicalGardenApp.Presentation
                 switch (operation)
                 {
                     case 1:
-                        ListAllFlowers();
+                        ListAllCactuses();
                         break;
                     case 2:
                         Add();
@@ -61,7 +61,7 @@ namespace BotanicalGardenApp.Presentation
             Input();
         }
 
-        private void ListAllFlowers()
+        private void ListAllCactuses()
         {
             Console.WriteLine(new string('-', 40));
             Console.WriteLine(new string(' ', 16) + "Cactus" + new string(' ', 16));
@@ -70,7 +70,7 @@ namespace BotanicalGardenApp.Presentation
             foreach (var cactus in cactuses)
             {
                 var Seasons = cactusBusiness.GetSeason(cactus.Name);
-                Console.WriteLine($"{cactus.Id} - {cactus.Name} {cactus.Height} {cactus.Thorns} {Seasons.Name}");
+                Console.WriteLine($"{cactus.Id} - {cactus.Name}, {cactus.Height}, {cactus.Thorns}, {Seasons.Name}");
             }
             Console.WriteLine(new string('-', 40));
         }
@@ -81,7 +81,7 @@ namespace BotanicalGardenApp.Presentation
             Console.WriteLine("Enter name: ");
             cactus.Name = Console.ReadLine();
             Console.WriteLine("Enter height: ");
-            cactus.Height = decimal.Parse( Console.ReadLine());
+            cactus.Height = decimal.Parse(Console.ReadLine());
             Console.WriteLine("Enter thorns: ");
             cactus.Thorns = Console.ReadLine();
             Console.WriteLine("Enter seasons Id: ");
@@ -95,12 +95,12 @@ namespace BotanicalGardenApp.Presentation
             Console.WriteLine("Enter Name to update: ");
             string name = Console.ReadLine();
             Cactus cactus = cactusBusiness.GetCactusByName(name);
-            if (cactus!= null)
+            if (cactus != null)
             {
                 Console.WriteLine("Enter name: ");
                 cactus.Name = Console.ReadLine();
                 Console.WriteLine("Enter height: ");
-                cactus.Height =  decimal.Parse(Console.ReadLine());
+                cactus.Height = decimal.Parse(Console.ReadLine());
                 Console.WriteLine("Enter thorns: ");
                 cactus.Thorns = Console.ReadLine();
                 Console.WriteLine("Enter seasons Id: ");
@@ -146,4 +146,4 @@ namespace BotanicalGardenApp.Presentation
     }
 }
 
-    
+

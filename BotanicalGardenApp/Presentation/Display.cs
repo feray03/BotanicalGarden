@@ -38,6 +38,9 @@ namespace BotanicalGardenApp.Presentation
                     case 3:
                         CreateShrubDisplay();
                         break;
+                    case 4:
+                        CreateCactusDisplay();
+                        break;
                     case 5:
                         CreateGrassDisplay();
                         break;
@@ -65,6 +68,11 @@ namespace BotanicalGardenApp.Presentation
         private void CreateShrubDisplay()
         {
             ShrubDisplay display = new ShrubDisplay();
+        }
+
+        private void CreateCactusDisplay()
+        {
+            CactusDisplay display = new CactusDisplay();
         }
 
         private void CreateGrassDisplay()
