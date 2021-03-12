@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 
 namespace Data
-{
+{ 
     public class GardenContext : DbContext
     {
         public virtual DbSet<Season> Seasons { get; set; }

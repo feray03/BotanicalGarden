@@ -82,6 +82,16 @@ namespace BotanicalGarden.Test
         }
 
         [TestCase]
+        public void Update_Tree()
+        {
+            var mockContext = new Mock<GardenContext>(); ;
+            var treeBusiness = new TreeBusiness();
+            var Tree = new Tree() { Name = "Tree1" };
+            try { treeBusiness.Update(Tree); }
+            catch { mockContext.Verify(m => m.Entry(It.IsAny<Tree>()), Times.Once()); }
+        }
+
+        [TestCase]
         public void Remove_Tree()
         {
             var data = new List<Tree>()

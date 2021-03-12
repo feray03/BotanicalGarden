@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Text;
 
 namespace BotanicalGardenApp.Presentation
-{
+{ 
     public class SeasonDisplay
     {
         private int closeOperationId = 3;

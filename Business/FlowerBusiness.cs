@@ -86,7 +86,5 @@ namespace Business
                 var Flower = this.GetFlowerByName(name);
                 return context.Seasons.Find(Flower.SeasonsId);
             }
-
-       
     }
 }

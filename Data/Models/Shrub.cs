@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 
 namespace Data.Models
-{
+{ 
     public class Shrub
     {
         public int Id { get; set; }
