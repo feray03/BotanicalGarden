@@ -87,5 +87,17 @@ namespace Business
             var Tree = this.GetTreeByName(name);
             return context.Seasons.Find(Tree.SeasonsId);
         }
+        /// <summary>
+        /// Returns an array of trees with the corresponding season.
+        /// </summary>
+        /// <param name="seasonId"></param>
+        /// <returns></returns>
+        public List<Tree> SearchBySeason(int seasonId)
+        {
+            Season TreeSeason = context.Seasons.SingleOrDefault(season => season.Id == seasonId);
+            return context.Trees.Where(tree => tree.SeasonsId == TreeSeason.Id).ToList();
+        }
     }
 }
+
+

@@ -5,10 +5,10 @@ using System.Collections.Generic;
 using System.Text;
 
 namespace BotanicalGardenApp.Presentation
-{ 
+{
     public class TreeDisplay
     {
-        private int closeOperationId = 6;
+        private int closeOperationId = 7;
         private TreeBusiness treeBusiness;
 
         private void ShowMenu()
@@ -21,7 +21,8 @@ namespace BotanicalGardenApp.Presentation
             Console.WriteLine("3. Update tree");
             Console.WriteLine("4. Fetch tree by Name");
             Console.WriteLine("5. Delete entry by Id");
-            Console.WriteLine("6. Back");
+            Console.WriteLine("6. Search tree by season");
+            Console.WriteLine("7. Back");
         }
 
         private void Input()
@@ -47,6 +48,9 @@ namespace BotanicalGardenApp.Presentation
                         break;
                     case 5:
                         Delete();
+                        break;
+                    case 6:
+                        SearchTreeBySeason();
                         break;
                     default:
                         break;
@@ -148,5 +152,19 @@ namespace BotanicalGardenApp.Presentation
             treeBusiness.Delete(id);
             Console.WriteLine("Done.");
         }
+        private void SearchTreeBySeason()
+        {
+            Console.WriteLine("Enter season id: ");
+            int seasonId = int.Parse(Console.ReadLine());
+            List<Tree> trees = treeBusiness.SearchBySeason(seasonId);
+            Console.WriteLine(new string('-', 40));
+            Console.WriteLine(new string(' ', 16) + "Trees" + new string(' ', 16));
+            Console.WriteLine(new string('-', 40));
+            foreach (var tree in trees)
+            {
+                Console.WriteLine($"{tree.Id} - {tree.Name}");
+            }
+        }
     }
 }
+   

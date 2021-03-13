@@ -87,5 +87,17 @@ namespace Business
             var Cactus = this.GetCactusByName(name);
             return context.Seasons.Find(Cactus.SeasonsId);
         }
+        /// <summary>
+        /// Returns an array of cactuses with the corresponding season.
+        /// </summary>
+        /// <param name="seasonId"></param>
+        /// <returns></returns>
+        public List<Cactus> SearchBySeason(int seasonId)
+        {
+            Season CactusSeason = context.Seasons.SingleOrDefault(season => season.Id == seasonId);
+            return context.Cactuses.Where(cactus => cactus.SeasonsId == CactusSeason.Id).ToList();
+        }
     }
 }
+    
+

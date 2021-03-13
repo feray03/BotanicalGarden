@@ -5,10 +5,10 @@ using System.Collections.Generic;
 using System.Text;
 
 namespace BotanicalGardenApp.Presentation
-{ 
+{
     public class CactusDisplay
     {
-        private int closeOperationId = 6;
+        private int closeOperationId = 7;
         private CactusBusiness cactusBusiness;
 
         private void ShowMenu()
@@ -21,6 +21,7 @@ namespace BotanicalGardenApp.Presentation
             Console.WriteLine("3. Update cactus");
             Console.WriteLine("4. Fetch cactus by Name");
             Console.WriteLine("5. Delete entry by Id");
+            Console.WriteLine("7. Search cactus by season");
             Console.WriteLine("6. Back");
         }
 
@@ -47,6 +48,9 @@ namespace BotanicalGardenApp.Presentation
                         break;
                     case 5:
                         Delete();
+                        break;
+                    case 6:
+                        SearchCactusBySeason();
                         break;
                     default:
                         break;
@@ -142,6 +146,19 @@ namespace BotanicalGardenApp.Presentation
             int id = int.Parse(Console.ReadLine());
             cactusBusiness.Delete(id);
             Console.WriteLine("Done.");
+        }
+        private void SearchCactusBySeason()
+        {
+            Console.WriteLine("Enter season id: ");
+            int seasonId = int.Parse(Console.ReadLine());
+            List<Cactus> cactuses = cactusBusiness.SearchBySeason(seasonId);
+            Console.WriteLine(new string('-', 40));
+            Console.WriteLine(new string(' ', 16) + "Cactuses" + new string(' ', 16));
+            Console.WriteLine(new string('-', 40));
+            foreach (var cactus in cactuses)
+            {
+                Console.WriteLine($"{cactus.Id} - {cactus.Name}");
+            }
         }
     }
 }
