@@ -49,44 +49,44 @@ namespace Business
         /// </summary>
         /// <param name="flower">the flower that will be added</param>
         public void Add(Flower flower)
+        {
+            context.Flowers.Add(flower);
+            context.SaveChanges();
+        }
+
+        /// <summary>
+        /// Updates flower.
+        /// </summary>
+        /// <param name="flower">the flower that will be updated</param>
+        public void Update(Flower flower)
+        {
+            var item = context.Flowers.Find(flower.Id);
+            if (item != null)
             {
-                context.Flowers.Add(flower);
+                context.Entry(item).CurrentValues.SetValues(flower);
                 context.SaveChanges();
             }
+        }
 
-            /// <summary>
-            /// Updates flower.
-            /// </summary>
-            /// <param name="flower">the flower that will be updated</param>
-            public void Update(Flower flower)
+        /// <summary>
+        /// Deletes a flower with wanted id.
+        /// </summary>
+        /// <param name="id">id of the wanted flower</param>
+        public void Delete(int id)
+        {
+            var item = context.Flowers.FirstOrDefault(m => m.Id == id);
+            if (item != null)
             {
-                var item = context.Flowers.Find(flower.Id);
-                if (item != null)
-                {
-                    context.Entry(item).CurrentValues.SetValues(flower);
-                    context.SaveChanges();
-                }
+                context.Flowers.Remove(item);
+                context.SaveChanges();
             }
+        }
 
-            /// <summary>
-            /// Deletes a flower with wanted id.
-            /// </summary>
-            /// <param name="id">id of the wanted flower</param>
-            public void Delete(int id)
-            {
-                var item = context.Flowers.FirstOrDefault(m => m.Id == id);
-                if (item != null)
-                {
-                    context.Flowers.Remove(item);
-                    context.SaveChanges();
-                }
-            }
-
-            public Season GetSeason(string name)
-            {
-                var Flower = this.GetFlowerByName(name);
-                return context.Seasons.Find(Flower.SeasonsId);
-            }
+        public Season GetSeason(string name)
+        {
+            var Flower = this.GetFlowerByName(name);
+            return context.Seasons.Find(Flower.SeasonsId);
+        }
 
         /// <summary>
         /// Returns an array of flowers with the corresponding season.
@@ -95,8 +95,8 @@ namespace Business
         /// <returns></returns>
         public List<Flower> SearchBySeason(int seasonId)
         {
-                Season FlowerSeason = context.Seasons.SingleOrDefault(season => season.Id == seasonId);
-                return context.Flowers.Where(flower => flower.SeasonsId == FlowerSeason.Id).ToList();
+            Season FlowerSeason = context.Seasons.SingleOrDefault(season => season.Id == seasonId);
+            return context.Flowers.Where(flower => flower.SeasonsId == FlowerSeason.Id).ToList();
         }
     }
 }

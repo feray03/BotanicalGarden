@@ -5,7 +5,7 @@ using System.Text;
 namespace BotanicalGardenApp.Presentation
 {
     public class Display
-    { 
+    {
         private int closeOperationId = 6;
         private void ShowMenu()
         {

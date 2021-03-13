@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 
 namespace Business
-{ 
+{
     public class TreeBusiness
     {
         private GardenContext context;

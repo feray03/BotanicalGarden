@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Text;
 
 namespace BotanicalGardenApp.Presentation
-{ 
+{
     public class ShrubDisplay
     {
         private int closeOperationId = 7;
