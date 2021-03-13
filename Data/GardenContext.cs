@@ -3,7 +3,11 @@ using Microsoft.EntityFrameworkCore;
 using System;
 
 namespace Data
-{ 
+{
+    /// <summary>
+    /// Context to connect to the database.
+    /// </summary>
+
     public class GardenContext : DbContext
     {
         public virtual DbSet<Season> Seasons { get; set; }

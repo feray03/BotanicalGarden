@@ -14,7 +14,7 @@ namespace BotanicalGardenApp.Presentation
         private void ShowMenu()
         {
             Console.WriteLine(new string('-', 40));
-            Console.WriteLine(new string(' ', 18) + "FLOWER MENU" + new string(' ', 18));
+            Console.WriteLine(new string(' ', 18) + "FLOWER MENU" + new string(' ', 11));
             Console.WriteLine(new string('-', 40));
             Console.WriteLine("1. List all flowes");
             Console.WriteLine("2. Add new flower");
