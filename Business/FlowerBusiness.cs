@@ -37,12 +37,13 @@ namespace Business
         /// <summary>
         /// Gives flower with wanted name. 
         /// </summary>
-        /// <param name="id">id of the wanted flower</param>
-        /// <returns>flower with wanted id</returns>
+        /// <param name="name">name of the wanted flower</param>
+        /// <returns>flower with wanted name</returns>
         public Flower GetFlowerByName(string name)
         {
             return context.Flowers.SingleOrDefault(flower => flower.Name == name);
         }
+
         /// <summary>
         /// Adds flower in database.
         /// </summary>
@@ -86,5 +87,16 @@ namespace Business
                 var Flower = this.GetFlowerByName(name);
                 return context.Seasons.Find(Flower.SeasonsId);
             }
+
+        /// <summary>
+        /// Returns an array of flowers with the corresponding season.
+        /// </summary>
+        /// <param name="seasonId"></param>
+        /// <returns></returns>
+        public List<Flower> SearchBySeason(int seasonId)
+        {
+                Season FlowerSeason = context.Seasons.SingleOrDefault(season => season.Id == seasonId);
+                return context.Flowers.Where(flower => flower.SeasonsId == FlowerSeason.Id).ToList();
+        }
     }
 }

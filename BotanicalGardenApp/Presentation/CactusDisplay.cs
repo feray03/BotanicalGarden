@@ -21,7 +21,7 @@ namespace BotanicalGardenApp.Presentation
             Console.WriteLine("3. Update cactus");
             Console.WriteLine("4. Fetch cactus by Name");
             Console.WriteLine("5. Delete entry by Id");
-            Console.WriteLine("6. Exit");
+            Console.WriteLine("6. Back");
         }
 
         private void Input()

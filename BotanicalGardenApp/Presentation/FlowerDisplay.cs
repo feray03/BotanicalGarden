@@ -8,7 +8,7 @@ namespace BotanicalGardenApp.Presentation
 { 
     public class FlowerDisplay
     {
-        private int closeOperationId = 6;
+        private int closeOperationId = 7;
         private FlowerBusiness flowerBusiness;
 
         private void ShowMenu()
@@ -21,7 +21,8 @@ namespace BotanicalGardenApp.Presentation
             Console.WriteLine("3. Update flower");
             Console.WriteLine("4. Fetch flower by Name");
             Console.WriteLine("5. Delete entry by Id");
-            Console.WriteLine("6. Exit");
+            Console.WriteLine("6. Search flower by season");
+            Console.WriteLine("7. Back");
         }
 
         private void Input()
@@ -47,6 +48,9 @@ namespace BotanicalGardenApp.Presentation
                         break;
                     case 5:
                         Delete();
+                        break;
+                    case 6:
+                        SearchFlowerBySeason();
                         break;
                     default:
                         break;
@@ -142,6 +146,20 @@ namespace BotanicalGardenApp.Presentation
             int id = int.Parse(Console.ReadLine());
             flowerBusiness.Delete(id);
             Console.WriteLine("Done.");
+        }
+
+        private void SearchFlowerBySeason()
+        {
+            Console.WriteLine("Enter season id: ");
+            int seasonId = int.Parse(Console.ReadLine());
+            List<Flower> flowers = flowerBusiness.SearchBySeason(seasonId);
+            Console.WriteLine(new string('-', 40));
+            Console.WriteLine(new string(' ', 16) + "Flowers" + new string(' ', 16));
+            Console.WriteLine(new string('-', 40));
+            foreach (var flower in flowers)
+            {
+                Console.WriteLine($"{flower.Id} - {flower.Name}");
+            }
         }
     }
 }
