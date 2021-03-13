@@ -87,5 +87,16 @@ namespace Business
             var Shrub = this.GetShrubByName(name);
             return context.Seasons.Find(Shrub.SeasonsId);
         }
+
+        /// <summary>
+        /// Returns an array of shrubs with the corresponding season.
+        /// </summary>
+        /// <param name="seasonId"></param>
+        /// <returns></returns>
+        public List<Shrub> SearchBySeason(int seasonId)
+        {
+            Season ShrubSeason = context.Seasons.SingleOrDefault(season => season.Id == seasonId);
+            return context.Shrubs.Where(shrub => shrub.SeasonsId == ShrubSeason.Id).ToList();
+        }
     }
 }

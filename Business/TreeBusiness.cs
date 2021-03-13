@@ -87,6 +87,7 @@ namespace Business
             var Tree = this.GetTreeByName(name);
             return context.Seasons.Find(Tree.SeasonsId);
         }
+
         /// <summary>
         /// Returns an array of trees with the corresponding season.
         /// </summary>

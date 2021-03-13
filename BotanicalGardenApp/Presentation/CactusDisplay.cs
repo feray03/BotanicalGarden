@@ -147,6 +147,7 @@ namespace BotanicalGardenApp.Presentation
             cactusBusiness.Delete(id);
             Console.WriteLine("Done.");
         }
+
         private void SearchCactusBySeason()
         {
             Console.WriteLine("Enter season id: ");

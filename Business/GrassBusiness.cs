@@ -87,5 +87,16 @@ namespace Business
             var Grass = this.GetGrassByName(name);
             return context.Seasons.Find(Grass.SeasonsId);
         }
+
+        /// <summary>
+        /// Returns an array of grasses with the corresponding season.
+        /// </summary>
+        /// <param name="seasonId"></param>
+        /// <returns></returns>
+        public List<Grass> SearchBySeason(int seasonId)
+        {
+            Season GrassSeason = context.Seasons.SingleOrDefault(season => season.Id == seasonId);
+            return context.Grasses.Where(grass => grass.SeasonsId == GrassSeason.Id).ToList();
+        }
     }
 }

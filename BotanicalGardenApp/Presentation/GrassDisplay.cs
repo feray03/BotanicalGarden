@@ -8,7 +8,7 @@ namespace BotanicalGardenApp.Presentation
 { 
     public class GrassDisplay
     {
-        private int closeOperationId = 6;
+        private int closeOperationId = 7;
         private GrassBusiness grassBusiness;
 
         private void ShowMenu()
@@ -21,7 +21,8 @@ namespace BotanicalGardenApp.Presentation
             Console.WriteLine("3. Update grass");
             Console.WriteLine("4. Fetch grass by Name");
             Console.WriteLine("5. Delete entry by Id");
-            Console.WriteLine("6. Back");
+            Console.WriteLine("6. Search grass by season");
+            Console.WriteLine("7. Back");
         }
         private void Input()
         {
@@ -46,6 +47,9 @@ namespace BotanicalGardenApp.Presentation
                         break;
                     case 5:
                         Delete();
+                        break;
+                    case 6:
+                        SearchGrassBySeason();
                         break;
                     default:
                         break;
@@ -130,12 +134,27 @@ namespace BotanicalGardenApp.Presentation
                 Console.WriteLine("Grass not found!");
             }
         }
+
         private void Delete()
         {
             Console.WriteLine("Enter Id to delete: ");
             int id = int.Parse(Console.ReadLine());
             grassBusiness.Delete(id);
             Console.WriteLine("Done.");
+        }
+
+        private void SearchGrassBySeason()
+        {
+            Console.WriteLine("Enter season id: ");
+            int seasonId = int.Parse(Console.ReadLine());
+            List<Grass> grasses = grassBusiness.SearchBySeason(seasonId);
+            Console.WriteLine(new string('-', 40));
+            Console.WriteLine(new string(' ', 16) + "Grasses" + new string(' ', 16));
+            Console.WriteLine(new string('-', 40));
+            foreach (var grass in grasses)
+            {
+                Console.WriteLine($"{grass.Id} - {grass.Name}");
+            }
         }
     }
 }

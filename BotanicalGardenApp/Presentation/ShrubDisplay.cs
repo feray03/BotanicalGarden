@@ -8,7 +8,7 @@ namespace BotanicalGardenApp.Presentation
 { 
     public class ShrubDisplay
     {
-        private int closeOperationId = 6;
+        private int closeOperationId = 7;
         private ShrubBusiness shrubBusiness;
 
         private void ShowMenu()
@@ -21,7 +21,8 @@ namespace BotanicalGardenApp.Presentation
             Console.WriteLine("3. Update shrub");
             Console.WriteLine("4. Fetch shrub by Name");
             Console.WriteLine("5. Delete entry by Id");
-            Console.WriteLine("6. Back");
+            Console.WriteLine("6. Search shrub by season");
+            Console.WriteLine("7. Back");
         }
 
         private void Input()
@@ -47,6 +48,9 @@ namespace BotanicalGardenApp.Presentation
                         break;
                     case 5:
                         Delete();
+                        break;
+                    case 6:
+                        SearchShrubBySeason();
                         break;
                     default:
                         break;
@@ -147,6 +151,20 @@ namespace BotanicalGardenApp.Presentation
             int id = int.Parse(Console.ReadLine());
             shrubBusiness.Delete(id);
             Console.WriteLine("Done.");
+        }
+
+        private void SearchShrubBySeason()
+        {
+            Console.WriteLine("Enter season id: ");
+            int seasonId = int.Parse(Console.ReadLine());
+            List<Shrub> shrubs = shrubBusiness.SearchBySeason(seasonId);
+            Console.WriteLine(new string('-', 40));
+            Console.WriteLine(new string(' ', 16) + "Shrubs" + new string(' ', 16));
+            Console.WriteLine(new string('-', 40));
+            foreach (var shrub in shrubs)
+            {
+                Console.WriteLine($"{shrub.Id} - {shrub.Name}");
+            }
         }
     }
 }
