@@ -155,6 +155,7 @@ namespace BotanicalGardenApp.Presentation
         private void SearchTreeBySeason()
         {
             Console.WriteLine("Enter season id: ");
+            Console.WriteLine("(1-spring, 2-summer, 3-autumn, 4-winter)");
             int seasonId = int.Parse(Console.ReadLine());
             List<Tree> trees = treeBusiness.SearchBySeason(seasonId);
             Console.WriteLine(new string('-', 40));

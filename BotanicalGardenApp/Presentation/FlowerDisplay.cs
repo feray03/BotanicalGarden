@@ -151,6 +151,7 @@ namespace BotanicalGardenApp.Presentation
         private void SearchFlowerBySeason()
         {
             Console.WriteLine("Enter season id: ");
+            Console.WriteLine("(1-spring, 2-summer, 3-autumn, 4-winter)");
             int seasonId = int.Parse(Console.ReadLine());
             List<Flower> flowers = flowerBusiness.SearchBySeason(seasonId);
             Console.WriteLine(new string('-', 40));

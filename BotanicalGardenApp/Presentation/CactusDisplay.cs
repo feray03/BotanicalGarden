@@ -151,6 +151,7 @@ namespace BotanicalGardenApp.Presentation
         private void SearchCactusBySeason()
         {
             Console.WriteLine("Enter season id: ");
+            Console.WriteLine("(1-spring, 2-summer, 3-autumn, 4-winter)");
             int seasonId = int.Parse(Console.ReadLine());
             List<Cactus> cactuses = cactusBusiness.SearchBySeason(seasonId);
             Console.WriteLine(new string('-', 40));

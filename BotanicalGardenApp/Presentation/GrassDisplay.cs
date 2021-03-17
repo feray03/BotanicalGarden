@@ -146,6 +146,7 @@ namespace BotanicalGardenApp.Presentation
         private void SearchGrassBySeason()
         {
             Console.WriteLine("Enter season id: ");
+            Console.WriteLine("(1-spring, 2-summer, 3-autumn, 4-winter)");
             int seasonId = int.Parse(Console.ReadLine());
             List<Grass> grasses = grassBusiness.SearchBySeason(seasonId);
             Console.WriteLine(new string('-', 40));

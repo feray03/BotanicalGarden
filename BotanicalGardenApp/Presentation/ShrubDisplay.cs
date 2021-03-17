@@ -156,6 +156,7 @@ namespace BotanicalGardenApp.Presentation
         private void SearchShrubBySeason()
         {
             Console.WriteLine("Enter season id: ");
+            Console.WriteLine("(1-spring, 2-summer, 3-autumn, 4-winter)");
             int seasonId = int.Parse(Console.ReadLine());
             List<Shrub> shrubs = shrubBusiness.SearchBySeason(seasonId);
             Console.WriteLine(new string('-', 40));
