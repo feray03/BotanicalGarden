@@ -91,6 +91,7 @@ namespace BotanicalGardenApp.Presentation
             Console.WriteLine("Enter life expectancy: ");
             shrub.LifeExpectancy = Console.ReadLine();
             Console.WriteLine("Enter seasons Id: ");
+            Console.WriteLine("(1-spring, 2-summer, 3-autumn, 4-winter)");
             shrub.SeasonsId = int.Parse(Console.ReadLine());
             shrubBusiness.Add(shrub);
             Console.WriteLine("The shrub was successfully added!");
