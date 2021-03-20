@@ -113,6 +113,7 @@ namespace BotanicalGardenApp.Presentation
                 Console.WriteLine("Enter stem diameter: ");
                 tree.StemDiameter = decimal.Parse(Console.ReadLine());
                 Console.WriteLine("Enter seasons Id: ");
+                Console.WriteLine("(1-spring, 2-summer, 3-autumn, 4-winter)");
                 tree.SeasonsId = int.Parse(Console.ReadLine());
                 treeBusiness.Update(tree);
                 Console.WriteLine("The tree was updated successfully!");

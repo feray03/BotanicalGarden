@@ -105,6 +105,7 @@ namespace BotanicalGardenApp.Presentation
                 Console.WriteLine("Enter height: ");
                 grass.Height = decimal.Parse(Console.ReadLine());
                 Console.WriteLine("Enter seasons Id: ");
+                Console.WriteLine("(1-spring, 2-summer, 3-autumn, 4-winter)");
                 grass.SeasonsId = int.Parse(Console.ReadLine());
                 grassBusiness.Update(grass);
                 Console.WriteLine("The grass was updated successfully!");

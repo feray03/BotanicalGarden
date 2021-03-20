@@ -109,6 +109,7 @@ namespace BotanicalGardenApp.Presentation
                 Console.WriteLine("Enter thorns: ");
                 cactus.Thorns = Console.ReadLine();
                 Console.WriteLine("Enter seasons Id: ");
+                Console.WriteLine("(1-spring, 2-summer, 3-autumn, 4-winter)");
                 cactus.SeasonsId = int.Parse(Console.ReadLine());
                 cactusBusiness.Update(cactus);
                 Console.WriteLine("The cactus was updated successfully!");
